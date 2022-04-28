@@ -25,20 +25,8 @@ app.listen(port, () => console.log(`Take us to warp ${port}!`))
 try {
     nonExistentFunction();
   } catch (error) {
+    rollbar.critical(`Hey! That's not allowed`, error)
     rollbar.error(error);
     // expected output: ReferenceError: nonExistentFunction is not defined
     // Note - error messages will vary depending on browser
   }
-
-  function getPastAppointments() {
-    axios.get('http://localhost:8765/appt')
-        .then(res => {
-            for (let i = 0; i < res.data.length; i += 2) {
-                const appt = res.data[i]
-                const nextAppt = res.data[i + 1] || null
-                const apptElem = makeApptCard(appt, nextAppt)
-                pastAppts.innerHTML += apptElem    
-            }
-        })
-        .catch(err => console.log(err))
-}
