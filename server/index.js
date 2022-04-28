@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 // rollbar
 
 // record a generic message and send it to Rollbar
-rollbar.log('Music app is reporting!')
+// rollbar.log('Music app is reporting!')
 
 //end of endbar stuff
 
