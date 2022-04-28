@@ -26,7 +26,7 @@ var rollbar = new Rollbar({
 rollbar.log('MusicalApplicate Rollbar!')
 
 const submitButton = document.getElementById('submit')
-submitButton.addEventListener('submit' () => {
+submitButton.addEventListener('submit', () => {
     try {
         nonExistentFunction();
       } catch (error) {
