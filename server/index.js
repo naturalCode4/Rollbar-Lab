@@ -27,11 +27,8 @@ rollbar.log('MusicalApplicate Rollbar!')
 
 const submitButton = document.getElementById('submit')
 submitButton.addEventListener('submit', () => {
-    try {
-        nonExistentFunction();
-      } catch (error) {
-        rollbar.warning(`Hey! That's not allowed`, error)
-}})
+    rollbar.warning(`Hey! That's not allowed`, error)
+})
 
 const port = process.env.PORT || 4545
 
@@ -40,7 +37,7 @@ app.listen(port, () => console.log(`Take us to warp ${port}!`))
 try {
     nonExistentFunction();
   } catch (error) {
-    rollbar.critical(`Hey! That's not allowed`, error)
+    rollbar.critical(`critical error`, error)
     // rollbar.error(error);
     // expected output: ReferenceError: nonExistentFunction is not defined
     // Note - error messages will vary depending on browser
