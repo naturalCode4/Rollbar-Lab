@@ -1,7 +1,6 @@
 const express = require('express')
 const path = require('path')
 
-
 const app = express()
 
 app.get('/', (req, res) => {
@@ -13,6 +12,8 @@ app.get('/style', (req, res) => {
     res.sendFile(path.join(__dirname, '../styles.css'))
     rollbar.info('css file served')
 })
+
+app.use(express.static(path.join(__dirname, "../")));
 
 const Rollbar = require('rollbar')
 var rollbar = new Rollbar({
